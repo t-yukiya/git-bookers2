@@ -2,7 +2,7 @@
 
 <% @books.each do |book| %>
 <div>
-  <p><%= image_tag 'no_image.jpg' %><br>
+  <p><%= image_tag book.user.get_image(100,100) %></p><br>
      <%= book.user.name %></p>
   <p>Title</a>
   <sapn><%= link_to book.title, book_path(book.id) %></sapn>

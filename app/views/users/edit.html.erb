@@ -2,8 +2,11 @@
 
 <%= form_with model: @user do |f| %>
 
-  <h4>Name</h4>
-  <%= f.text_field :name %>
+   <h4 for="inputName">Name</h4>
+  <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"Name"%>
+  
+  <h4 for="inputImage">Image</h4>
+  <%= f.file_field :image, placeholder: "Image", accept: "image/*" %>
   
   <h4>Introduction</h4>
   <%= f.text_area :introduction %>
