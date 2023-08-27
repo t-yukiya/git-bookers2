@@ -1,11 +1,25 @@
-<h1>Book detail</h1>
-<div>
-  <p><%= image_tag @book.user.get_image(100,100) %><br>
-     <%= @book.user.name %></p>
-  <p>Title:<%= @book.title %></p>
-  <p>Opsioin:<%= @book.body %></p>
-  <% if @book.user == current_user %>
-    <%= link_to "Edit", edit_book_path(@book.id) %>
-    <%= link_to "Destroy", book_path(@book), method: :delete, "data-confirm" => "本当に削除しますか？" %>
-  <% end %>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div clas="col-md-3">
+      <%= render 'users/show', user: @user %>
+      <%= render 'new', book: @book %>
+    </div>
+    <div class="col-md-8 offset-md-1">
+    <h1>Book detail</h1>
+      <table class="table">
+        <tbody>
+          <tr>
+            <th><%= image_tag @book.user.get_image(100,100) %><br>
+               <%= @book.user.name %></th>
+            <th><%= @book.title %></th>
+            <th><%= @book.body %></th>
+            <% if @book.user == current_user %>
+              <th><%= link_to "Edit", edit_book_path(@book.id) %></th>
+              <th><%= link_to "Destroy", book_path(@book), method: :delete, "data-confirm" => "本当に削除しますか？" %></th>
+            <% end %>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
