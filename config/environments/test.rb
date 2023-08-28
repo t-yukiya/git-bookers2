@@ -7,6 +7,9 @@ require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+if defined?(Rack::MiniProfiler)
+  Rack::MiniProfiler.config.auto_inject = false
+end
 
   config.cache_classes = false
   config.action_view.cache_template_loading = true
@@ -44,7 +47,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :test
 
   # Print deprecation notices to the stderr.
-  config.active_support.deprecation = :stderr
+  config.active_support.deprecation = :silence
 
   # Raise exceptions for disallowed deprecations.
   config.active_support.disallowed_deprecation = :raise
